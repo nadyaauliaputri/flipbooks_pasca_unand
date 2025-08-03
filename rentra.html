@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Renstra Pascasarjana</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/turn.js@4/turn.min.js"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #222;
+    }
+    #flipbook {
+      width: 960px;
+      height: 600px;
+      margin: auto;
+      background: white;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    #flipbook .page img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .btn-primary-custom {
+      background-color: #0893d5;
+      border-color: #0893d5;
+      color: #fff;
+      font-weight: 600;
+    }
+    .btn-primary-custom:hover {
+      background-color: #067ab3;
+      border-color: #067ab3;
+    }
+    .section-heading {
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: #0893d5;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div class="container py-5">
+  <h2 class="section-heading">Renstra Pascasarjana Universitas Andalas</h2>
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <div class="bg-white p-4 rounded shadow-sm border">
+        <div id="flipbook" class="mb-4"></div>
+        <div class="text-center">
+          <a href="Renstra Pascasarjana.pdf" class="btn btn-primary-custom px-4 py-2" target="_blank">📥 Unduh PDF Renstra</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready(function () {
+    for (let i = 1; i <= 63; i++) {
+      let filename = "Renstra Pascasarjana flipbook_page-" + i.toString().padStart(4, '0') + ".jpg";
+      $('#flipbook').append('<div class="page"><img src="' + filename + '" alt="Halaman ' + i + '"></div>');
+    }
+
+    $('#flipbook').turn({
+      width: 960,
+      height: 600,
+      autoCenter: true,
+      gradients: true,
+      elevation: 50
+    });
+  });
+</script>
+</body>
+</html>
